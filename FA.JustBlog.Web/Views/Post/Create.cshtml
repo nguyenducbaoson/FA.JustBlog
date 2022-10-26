@@ -1,0 +1,55 @@
+﻿@model FA.JustBlog.ViewModel.PostViewModel.PostCreateVM
+<form asp-action="Create">
+    <div class="container border p-3">
+        <br />
+        <h1 class="text-primary">Create Post</h1>
+        <hr />
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-2">
+                <label asp-for="Title" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="PostContent" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="PostContent" class="form-control" />
+                <span asp-validation-for="PostContent" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="ShortDecription" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <textarea asp-for="ShortDecription" class="form-control" rows="5" ></textarea>
+                <span asp-validation-for="ShortDecription" class="text-danger"></span>
+            </div>
+             <div class="col-2">
+                <label asp-for="UrlSlug" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="UrlSlug" class="form-control" />
+                <span asp-validation-for="UrlSlug" class="text-danger"></span>
+            </div>
+            <div class="col-2">
+                <label asp-for="CategoryId" class="control-label pt-2" style="font-size:20px;"></label>
+            </div>
+            <div class="col-10 pb-3">
+                <input asp-for="CategoryId" class="form-control" />
+                <span asp-validation-for="CategoryId" class="text-danger"></span>
+            </div>
+            <div class="col-5 offset-2"> 
+                <a asp-action="Index" asp-controller="Post" class="btn-primary btn form-control">Back To List</a>
+            </div>
+            <div class="col-5">
+               <input type="submit" value="Create" class="btn btn-success form-control"/>
+            </div>
+        </div>
+    </div>
+</form>
+@section Scripts{
+    <partial name="_ValidationScriptsPartial"></partial>
+}

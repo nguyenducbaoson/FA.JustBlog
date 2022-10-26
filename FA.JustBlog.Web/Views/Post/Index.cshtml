@@ -1,0 +1,39 @@
+﻿@model IEnumerable<FA.JustBlog.ViewModel.PostViewModel.PostVM>
+<br />
+<div class="container p-4 border">
+    <div class="row" pb-2>
+        <div class="col">
+            <h1 class="text-primary">Post List</h1>
+        </div>
+        <div class="col text-end pt-1">
+            <a asp-controller="Post" asp-action="Create" class="btn btn-outline-primary"><i class="bi bi-plus-square-fill"></i>Create New Post</a>
+        </div>
+    </div>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>ShortDecription</th>
+                <th>PostContent</th>
+                <th>UrlSlug</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.ShortDecription</td>
+                    <td>@item.PostContent</td>
+                    <td>@item.UrlSlug</td>
+                    <td>
+                        <a asp-controller="Post" asp-action="UpdatePost" asp-route-PostId="@item.PostId" class="btn btn-outline-success"><i class="bi bi-pencil-square"></i></a>
+                        <a asp-controller="Post" asp-action="DeletePost" asp-route-PostId="@item.PostId" class="btn btn-outline-danger"><i class="bi bi-trash-fill"></i></a>
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
