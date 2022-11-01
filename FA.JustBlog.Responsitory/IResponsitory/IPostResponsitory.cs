@@ -10,7 +10,7 @@ namespace FA.JustBlog.Responsitory.IResponsitory
         IList<Post> GetUnpublisedPosts();
         IList<Post> GetLatestPost(int size);
         int CountPostsForCategory(int category);
-        IList<Post> GetPostsByCategory(int category);
+        IList<Post> GetPostsByCategory(string category);
         IList<Post> GetMostViewedPost(int size);
         IList<Post> GetHighestPosts(int size);
         dynamic GetPostWithCategory();

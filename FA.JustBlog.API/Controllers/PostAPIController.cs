@@ -215,11 +215,11 @@ namespace FA.JustBlog.API.Controllers
             }
             return _response;
         }
-        [HttpGet("GetPostsByCategory/{category:int}", Name = "GetPostsByCategory")]
+        [HttpGet("GetPostsByCategory/{category}", Name = "GetPostsByCategory")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
-        public async Task<ActionResult<APIResponse>> GetPostsByCategory(int category)
+        public async Task<ActionResult<APIResponse>> GetPostsByCategory(string category)
         {
             var posts =  postService.GetPostsByCategory(category);
             _response.Result = mapper.Map<List<PostVM>>(posts);

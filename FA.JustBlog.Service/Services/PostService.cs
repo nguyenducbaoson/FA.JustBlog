@@ -64,7 +64,7 @@ namespace FA.JustBlog.Service.Services
             var posts = _unitOfWork.postRepository.GetLatestPost(size);
             return posts;
         }
-        public IList<Post> GetPostsByCategory(int category)
+        public IList<Post> GetPostsByCategory(string category)
         {
             var posts = _unitOfWork.postRepository.GetPostsByCategory(category);
             return posts;
