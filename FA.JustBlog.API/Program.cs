@@ -97,7 +97,7 @@ builder.Services.AddSwaggerGen(options => {
     {
         Version = "v1.0",
         Title = "JustBlog V1",
-        Description = "API to manage Villa",
+        Description = "API to manage Just Blogs",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
         {

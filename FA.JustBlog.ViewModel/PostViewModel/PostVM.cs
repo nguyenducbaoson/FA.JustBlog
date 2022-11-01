@@ -13,6 +13,7 @@ namespace FA.JustBlog.ViewModel.PostViewModel
         public ICollection<int> TagId { get; set; }
         public ICollection<int> CommentId { get; set; }
         public int? ViewCount { get; set; }
+        public DateTime? PostOn { get; set; }
         //public int? RateCount { get; set; }
         //public int? TotalRate { get; set; }
 

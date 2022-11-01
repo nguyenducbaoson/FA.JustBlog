@@ -50,8 +50,7 @@ namespace FA.JustBlog.Responsitory.Responsitory
 
         public IEnumerable<TEntity> Pagination(int pageSize, int pageIndex)
         {
-            return db.Set<TEntity>().Take(pageSize).Skip((pageIndex - 1) * pageSize);
-
+            return db.Set<TEntity>().Skip((pageIndex - 1) * pageSize).Take(pageSize);
         }
     }
 }

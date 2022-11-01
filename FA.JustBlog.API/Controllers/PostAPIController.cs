@@ -245,6 +245,15 @@ namespace FA.JustBlog.API.Controllers
             _response.IsSuccess = true;
             return Ok(_response);
         }
+        [HttpGet("PostPagination/{pageSize:int}/{pageIndex:int}",Name = "PostPagination")]
+        public ActionResult<APIResponse> PostPagination(int pageSize,int pageIndex)
+        {
+            var posts = postService.PostPagination(pageSize,pageIndex).ToList();
+            _response.Result = mapper.Map<List<PostVM>>(posts);
+            _response.StatusCode = HttpStatusCode.OK;
+            _response.IsSuccess = true;
+            return Ok(_response);
+        }
 
     }
 }
