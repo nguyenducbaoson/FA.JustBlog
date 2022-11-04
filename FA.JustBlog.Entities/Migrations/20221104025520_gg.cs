@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FA.JustBlog.Entities.Migrations
 {
-    public partial class AddDB : Migration
+    public partial class gg : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,7 +15,7 @@ namespace FA.JustBlog.Entities.Migrations
                 {
                     CategoryId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    CategoryName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     UrlSlug = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
                     Description = table.Column<string>(type: "nvarchar(1024)", maxLength: 1024, nullable: false),
                     CreateAt = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -25,6 +25,22 @@ namespace FA.JustBlog.Entities.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Categories", x => x.CategoryId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "LocalUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    UserName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PassWord = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Role = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_LocalUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -127,13 +143,13 @@ namespace FA.JustBlog.Entities.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "CategoryId", "CreateAt", "Description", "Modify", "Name", "Status", "UrlSlug" },
+                columns: new[] { "CategoryId", "CategoryName", "CreateAt", "Description", "Modify", "Status", "UrlSlug" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2659), "Delecius", new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2660), "Cake", 1, "#" },
-                    { 2, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2662), "Delecius", new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2663), "Pine", 1, "#" },
-                    { 3, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2664), "Not good", new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2665), "Pudding", 1, "#" },
-                    { 4, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2666), "Delecius", new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2666), "burrito", 1, "#" }
+                    { 1, "Science", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(854), "Delecius", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(855), 1, "#" },
+                    { 2, "Social", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(857), "Delecius", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(858), 1, "#" },
+                    { 3, "Culture", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(859), "Not good", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(860), 1, "#" },
+                    { 4, "Travel", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(861), "Delecius", new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(862), 1, "#" }
                 });
 
             migrationBuilder.InsertData(
@@ -152,11 +168,11 @@ namespace FA.JustBlog.Entities.Migrations
                 columns: new[] { "PostId", "CategoryId", "CreateAt", "Modify", "PostContent", "PostOn", "Published", "RateCount", "ShortDecription", "Status", "Title", "TotalRate", "UrlSlug", "ViewCount" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2525), new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2516), "Post content", new DateTime(2012, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "mot", 1, "Title 1", null, "Url1", null },
-                    { 2, 1, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2531), new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2529), "employee", new DateTime(2021, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "hai", 1, "Title 2", null, "Url12", null },
-                    { 3, 2, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2533), new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2533), "Name", new DateTime(2020, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "ba", 1, "Title 3", null, "Url3", null },
-                    { 4, 2, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2536), new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2535), "gae", new DateTime(2016, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), false, null, "bon", 1, "Title 4", null, "Url4", null },
-                    { 5, 1, new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2538), new DateTime(2022, 10, 21, 13, 50, 18, 860, DateTimeKind.Local).AddTicks(2537), "Car", new DateTime(2015, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "nam", 1, "Title 5", null, "Url5", null }
+                    { 1, 1, new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(667), new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(656), "Post content", new DateTime(2012, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "mot", 1, "Title 1", null, "Url1", null },
+                    { 2, 1, new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(674), new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(673), "employee", new DateTime(2021, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "hai", 1, "Title 2", null, "Url12", null },
+                    { 3, 2, new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(679), new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(678), "Name", new DateTime(2020, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "ba", 1, "Title 3", null, "Url3", null },
+                    { 4, 2, new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(681), new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(681), "gae", new DateTime(2016, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), false, null, "bon", 1, "Title 4", null, "Url4", null },
+                    { 5, 1, new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(684), new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(683), "Car", new DateTime(2015, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified), true, null, "nam", 1, "Title 5", null, "Url5", null }
                 });
 
             migrationBuilder.InsertData(
@@ -201,6 +217,9 @@ namespace FA.JustBlog.Entities.Migrations
         {
             migrationBuilder.DropTable(
                 name: "Comments");
+
+            migrationBuilder.DropTable(
+                name: "LocalUsers");
 
             migrationBuilder.DropTable(
                 name: "PostTagMaps");

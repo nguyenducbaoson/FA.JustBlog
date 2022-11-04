@@ -39,10 +39,10 @@ namespace FA.JustBlog.Entities.Data
                );
 
             modelBuilder.Entity<Category>().HasData(
-     new Category { CategoryId = 1, Name = "Cake", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
-     new Category { CategoryId = 2, Name = "Pine", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
-     new Category { CategoryId = 3, Name = "Pudding", UrlSlug = "#", Description = "Not good", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
-     new Category { CategoryId = 4, Name = "burrito", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived }
+     new Category { CategoryId = 1, CategoryName = "Science", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
+     new Category { CategoryId = 2, CategoryName = "Social", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
+     new Category { CategoryId = 3, CategoryName = "Culture", UrlSlug = "#", Description = "Not good", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived },
+     new Category { CategoryId = 4, CategoryName = "Travel", UrlSlug = "#", Description = "Delecius", CreateAt = DateTime.Now, Modify = DateTime.Now, Status = Status.Actived }
      );
 
             modelBuilder.Entity<Tag>().HasData(

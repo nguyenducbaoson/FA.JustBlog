@@ -13,7 +13,7 @@ namespace FA.JustBlog.Responsitory.Responsitory
 
         public Category GetCategoryByName(string name)
         {
-            var category = db.Set<Category>().FirstOrDefault(x => x.Name == name);
+            var category = db.Set<Category>().FirstOrDefault(x => x.CategoryName == name);
             return category;
         }
 

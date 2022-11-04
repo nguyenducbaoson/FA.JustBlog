@@ -49,9 +49,9 @@ namespace FA.JustBlog.Responsitory.Responsitory
             return db.Set<Post>().OrderByDescending(x => x.ViewCount).Take(size).ToList();
         }
 
-        public IList<Post> GetPostsByCategory(string category)
+        public IList<Post> GetPostsByCategory(string categoryName)
         {
-            return db.Set<Post>().Where(x => x.Category.Name.Contains(category)).ToList();
+            return db.Set<Post>().Where(x => x.Category.CategoryName.Contains(categoryName)).ToList();
         }
 
         public dynamic GetPostWithCategory()

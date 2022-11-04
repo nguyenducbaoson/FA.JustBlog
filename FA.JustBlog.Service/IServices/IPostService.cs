@@ -19,7 +19,7 @@ namespace FA.JustBlog.Service.IServices
         IList<Post> GetUnpublisedPosts();
         IList<Post> GetLatestPost(int size);
         int CountPostsForCategory(int category);
-        IList<Post> GetPostsByCategory(string category);
+        IList<Post> GetPostsByCategory(string categoryName);
         IList<Post> GetHighestPosts(int size);
         public IEnumerable<Post> PostPagination(int pageSize, int PageIndex);
         dynamic GetPostWithCategory();

@@ -14,7 +14,7 @@ namespace FA.JustBlog.Entities.Configuration
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasKey(x => x.CategoryId);
-            builder.Property(x => x.Name).HasMaxLength(100);
+            builder.Property(x => x.CategoryName).HasMaxLength(100);
         }
     }
 }

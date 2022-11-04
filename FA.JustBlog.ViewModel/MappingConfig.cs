@@ -12,7 +12,7 @@ namespace FA.JustBlog.ViewModel
         public MappingConfig()
         {
             CreateMap<Post, PostVM>().ForMember(c => c.CommentId, p => p.MapFrom(c => c.Comments.Select(c => c.CommentId))).ForMember(c=>c.TagName,p=>p.MapFrom(c=>c.PostTagMaps.Select(c=>c.Tag.Name))).
-                ForMember(c => c.CategoryName, p => p.MapFrom(c => c.Category.Name))
+                ForMember(c => c.CategoryName, p => p.MapFrom(c => c.Category.CategoryName))
                 .ReverseMap();
             CreateMap<Post, PostCreateVM>().ReverseMap();
             CreateMap<Post, PostUpdateVM>().ForMember(c => c.CommentId, p => p.MapFrom(c => c.Comments.Select(c => c.CommentId))).ForMember(c => c.TagId, p => p.MapFrom(c => c.PostTagMaps.Select(c => c.TagId))).ReverseMap();

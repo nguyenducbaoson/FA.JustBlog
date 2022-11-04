@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FA.JustBlog.Entities.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20221024034449_AddUser")]
-    partial class AddUser
+    [Migration("20221104025520_gg")]
+    partial class gg
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -32,6 +32,11 @@ namespace FA.JustBlog.Entities.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CategoryId"), 1L, 1);
 
+                    b.Property<string>("CategoryName")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<DateTime>("CreateAt")
                         .HasColumnType("datetime2");
 
@@ -42,11 +47,6 @@ namespace FA.JustBlog.Entities.Migrations
 
                     b.Property<DateTime>("Modify")
                         .HasColumnType("datetime2");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("Status")
                         .HasColumnType("int");
@@ -64,40 +64,40 @@ namespace FA.JustBlog.Entities.Migrations
                         new
                         {
                             CategoryId = 1,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4096),
+                            CategoryName = "Science",
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(854),
                             Description = "Delecius",
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4097),
-                            Name = "Cake",
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(855),
                             Status = 1,
                             UrlSlug = "#"
                         },
                         new
                         {
                             CategoryId = 2,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4099),
+                            CategoryName = "Social",
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(857),
                             Description = "Delecius",
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4099),
-                            Name = "Pine",
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(858),
                             Status = 1,
                             UrlSlug = "#"
                         },
                         new
                         {
                             CategoryId = 3,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4101),
+                            CategoryName = "Culture",
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(859),
                             Description = "Not good",
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4101),
-                            Name = "Pudding",
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(860),
                             Status = 1,
                             UrlSlug = "#"
                         },
                         new
                         {
                             CategoryId = 4,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4102),
+                            CategoryName = "Travel",
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(861),
                             Description = "Delecius",
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(4103),
-                            Name = "burrito",
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(862),
                             Status = 1,
                             UrlSlug = "#"
                         });
@@ -265,8 +265,8 @@ namespace FA.JustBlog.Entities.Migrations
                         {
                             PostId = 1,
                             CategoryId = 1,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3949),
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3939),
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(667),
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(656),
                             PostContent = "Post content",
                             PostOn = new DateTime(2012, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified),
                             Published = true,
@@ -279,8 +279,8 @@ namespace FA.JustBlog.Entities.Migrations
                         {
                             PostId = 2,
                             CategoryId = 1,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3953),
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3951),
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(674),
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(673),
                             PostContent = "employee",
                             PostOn = new DateTime(2021, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified),
                             Published = true,
@@ -293,8 +293,8 @@ namespace FA.JustBlog.Entities.Migrations
                         {
                             PostId = 3,
                             CategoryId = 2,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3955),
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3955),
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(679),
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(678),
                             PostContent = "Name",
                             PostOn = new DateTime(2020, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified),
                             Published = true,
@@ -307,8 +307,8 @@ namespace FA.JustBlog.Entities.Migrations
                         {
                             PostId = 4,
                             CategoryId = 2,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3958),
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3957),
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(681),
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(681),
                             PostContent = "gae",
                             PostOn = new DateTime(2016, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified),
                             Published = false,
@@ -321,8 +321,8 @@ namespace FA.JustBlog.Entities.Migrations
                         {
                             PostId = 5,
                             CategoryId = 1,
-                            CreateAt = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3960),
-                            Modify = new DateTime(2022, 10, 24, 10, 44, 49, 89, DateTimeKind.Local).AddTicks(3959),
+                            CreateAt = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(684),
+                            Modify = new DateTime(2022, 11, 4, 9, 55, 20, 625, DateTimeKind.Local).AddTicks(683),
                             PostContent = "Car",
                             PostOn = new DateTime(2015, 12, 25, 1, 3, 12, 0, DateTimeKind.Unspecified),
                             Published = true,

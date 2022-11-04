@@ -8,7 +8,7 @@ namespace FA.JustBlog.ViewModel.CategoryViewModel
 {
     public class CategoryCreateVM
     {
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         public string UrlSlug { get; set; }
         public string Description { get; set; }
     }

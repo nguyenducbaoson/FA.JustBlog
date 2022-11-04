@@ -15,7 +15,7 @@ namespace FA.JustBlog.Entities.Models
         public int CategoryId { get; set; }
         [Required(ErrorMessage = "Category name is required.")]
         [StringLength(255)]
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
         [StringLength(255)]
         public string UrlSlug { get; set; }
         [StringLength(1024)]
