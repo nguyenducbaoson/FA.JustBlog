@@ -82,7 +82,7 @@ namespace FA.JustBlog.API.Controllers
             return _response;
         }
         [HttpPost]
-        [Authorize(Roles = "Contributor,Blog Owner")]
+        //[Authorize(Roles = "Contributor,Blog Owner")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]

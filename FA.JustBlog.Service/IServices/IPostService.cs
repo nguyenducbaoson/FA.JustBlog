@@ -3,11 +3,6 @@ namespace FA.JustBlog.Service.IServices
 {
     public interface IPostService
     {
-        //Task<T> GetAllASync<T>();
-        //Task<T> GetASync<T>(int id);
-        //Task<T> CreateAsync<T>(PostCreateVM postCreate);
-        //Task<T> UpdateAsync<T>(PostUpdateVM postUpdate);
-        //Task DeleteAsync<T>(int id);
         IList<Post> GetMostViewedPost(int size);
         IList<Post> GetAllEntities();
         Post Find(int entityId);
