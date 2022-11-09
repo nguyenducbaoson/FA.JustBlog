@@ -179,7 +179,7 @@ namespace FA.JustBlog.API.Controllers
             return _response;
         }
         [HttpPatch("{id:int}", Name = "UpdatePostPartial")]
-        [Authorize(Roles = "Contributor,Blog Owner")]
+        //[Authorize(Roles = "Contributor,Blog Owner")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
