@@ -147,7 +147,7 @@ namespace FA.JustBlog.API.Controllers
             return _response;
         }
         [HttpPut("{id:int}", Name = "UpdatePost")]
-        [Authorize(Roles = "Contributor,Blog Owner")]
+        //[Authorize(Roles = "Contributor,Blog Owner")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status403Forbidden)]
         [ProducesResponseType(StatusCodes.Status401Unauthorized)]
